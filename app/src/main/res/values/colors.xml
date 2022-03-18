@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="gri_renk">#737373</color>
+    <!-- uygulama renkleri -->
+    <color name="anaRenk">#388e3c</color>
+    <color name="anaRenkAcik">#6abf69</color>
+    <color name="anaRenkKoyu">#00600f</color>
+    <color name="anaYazıRenk">#000000</color>
 </resources>

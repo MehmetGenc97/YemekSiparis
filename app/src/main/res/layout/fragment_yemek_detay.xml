@@ -52,9 +52,9 @@
             android:id="@+id/textViewDetayYemekFiyat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="34dp"
             android:text='@{yemekNesnesi.yemek_fiyat + " ₺"}'
-            android:textColor="@color/purple_700"
+            android:textColor="@color/anaRenkKoyu"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +94,7 @@
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:strokeColor="@color/purple_700"
+            app:strokeColor="@color/anaRenk"
             app:strokeWidth="1dp">
 
             <LinearLayout
@@ -112,10 +112,12 @@
 
                 <TextView
                     android:id="@+id/textViewYemekAdet"
-                    android:layout_width="wrap_content"
+                    android:layout_width="68sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text='@{yemekAdet + ""}'
+                    android:textAlignment="center"
+                    android:textColor="@color/anaRenkKoyu"
                     android:textSize="34sp" />
 
                 <ImageView

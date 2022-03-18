@@ -26,6 +26,7 @@ class SepetFragmentViewModel : ViewModel() {
 
     fun sepettenYemekSil(sepetYemekler: SepetYemekler) {
         yrepo.sepettenYemekSil(sepetYemekler)
+        sepettekiYemekleriYukle(kullanici_adi)
     }
 
     fun toplamFiyatHesapla() {

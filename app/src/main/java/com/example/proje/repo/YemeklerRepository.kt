@@ -71,7 +71,6 @@ class YemeklerRepository {
             override fun onResponse(call: Call<CRUDCevap>?, response: Response<CRUDCevap>?) {}
             override fun onFailure(call: Call<CRUDCevap>?, t: Throwable?) {}
         })
-        sepettekiYemekleriAl(sepetYemek.kullanici_adi)
     }
 
     fun toplamFiyatHesapla() {

@@ -17,7 +17,7 @@
             android:id="@+id/sepetCard"
             android:layout_margin="5dp"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/purple_700"
+            app:strokeColor="@color/anaRenkAcik"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -69,7 +69,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginBottom="16dp"
                     android:text='@{sepetYemekNesnesi.yemek_fiyat*sepetYemekNesnesi.yemek_siparis_adet + " ₺"}'
-                    android:textColor="@color/purple_700"
+                    android:textColor="@color/anaRenkKoyu"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cardView2" />
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     app:strokeWidth="1dp"
-                    app:strokeColor="@color/purple_700"
+                    app:strokeColor="@color/anaRenkAcik"
                     app:cardCornerRadius="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -97,6 +97,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:text='@{sepetYemekNesnesi.yemek_siparis_adet + " Adet"}'
+                            android:textColor="@color/anaRenkAcik"
                             android:textSize="16sp" />
 
                         <ImageView

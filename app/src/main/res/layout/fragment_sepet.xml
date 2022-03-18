@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text='@{toplamSepetFiyat + " ₺"}'
-            android:textColor="@color/purple_700"
+            android:textColor="@color/anaRenk"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textViewToplamMetin"

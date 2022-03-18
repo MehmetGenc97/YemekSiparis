@@ -1,6 +1,7 @@
 package com.example.proje.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,11 +42,11 @@ class SepetYemeklerAdapter(var mContext: Context, var sepetYemeklerListesi: List
             Navigation.findNavController(it).navigate(gecis)
         }
         t.imageViewSepetSil.setOnClickListener{
-            Snackbar.make(it, "${yemek.yemek_adi} sepetten silinsin mi?", Snackbar.LENGTH_LONG)
+            Snackbar.make(it, "${sepetYemek.yemek_adi} sepetten silinsin mi?", Snackbar.LENGTH_LONG)
                 .setAction("Evet") {
                     viewModel.sepettenYemekSil(sepetYemek)
                 }.show()
-            viewModel.sepettekiYemekleriYukle(viewModel.kullanici_adi)
+            Log.e("Sepet Ürün sayısı:" , sepetYemeklerListesi.size.toString())
         }
     }
 
