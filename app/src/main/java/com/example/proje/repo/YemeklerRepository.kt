@@ -72,10 +72,4 @@ class YemeklerRepository {
             override fun onFailure(call: Call<CRUDCevap>?, t: Throwable?) {}
         })
     }
-
-    fun toplamFiyatHesapla() {
-        for(yemek in sepetYemeklerListesi.value!!.iterator()) {
-            toplamSepetFiyati += yemek.yemek_siparis_adet * yemek.yemek_fiyat
-        }
-    }
 }

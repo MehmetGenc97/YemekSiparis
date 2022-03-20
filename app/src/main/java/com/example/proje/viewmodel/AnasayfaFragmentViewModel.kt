@@ -1,15 +1,20 @@
 package com.example.proje.viewmodel
 
+import android.view.View
 import android.widget.ImageView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.proje.entity.Yemekler
 import com.example.proje.repo.YemeklerRepository
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import javax.sql.StatementEvent
 
 class AnasayfaFragmentViewModel : ViewModel() {
     var yemeklerListesi = MutableLiveData<List<Yemekler>>()
     val yrepo = YemeklerRepository()
-    val kullanici_adi = "Genç"
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var kullanici_adi: String
 
     init {
         yemekleriYukle()
@@ -20,7 +25,16 @@ class AnasayfaFragmentViewModel : ViewModel() {
         yrepo.tumYemekleriAl()
     }
 
-    fun sepeteEkle(yemek: Yemekler, yemek_siparis_adet: Int, kullanici_adi: String) {
-        yrepo.sepeteYemekEkle(yemek, yemek_siparis_adet, kullanici_adi)
+    fun sepeteEkle(view: View, yemek: Yemekler, yemek_siparis_adet: Int) {
+        firebaseInit()
+        val firebaseUser = firebaseAuth.currentUser
+        if(!firebaseUser?.email.isNullOrEmpty())
+            yrepo.sepeteYemekEkle(yemek, yemek_siparis_adet, firebaseUser!!.email.toString())
+        else
+            Snackbar.make(view, "Sepete ürün eklemek için Giriş yapın", Snackbar.LENGTH_SHORT).show()
+    }
+
+    fun firebaseInit() {
+        firebaseAuth = FirebaseAuth.getInstance()
     }
 }

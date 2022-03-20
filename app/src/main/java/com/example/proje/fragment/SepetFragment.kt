@@ -44,7 +44,7 @@ class SepetFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.sepettekiYemekleriYukle(viewModel.kullanici_adi)
+        viewModel.sepettekiYemekleriYukle()
     }
 
     fun toplamFiyatHesapla() : Int {

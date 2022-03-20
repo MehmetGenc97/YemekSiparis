@@ -39,8 +39,7 @@ class YemeklerAdapter(var mContext: Context, var yemeklerListesi: List<Yemekler>
         t.floatingActionButton2.setOnClickListener{
             Snackbar.make(it, "${yemek.yemek_adi} sepete eklensin mi", Snackbar.LENGTH_SHORT)
                 .setAction("Evet") {
-                    viewModel.sepeteEkle(yemek, 1, viewModel.kullanici_adi)
-                    Snackbar.make(it, "${yemek.yemek_adi} Sepete Eklendi", Snackbar.LENGTH_SHORT).show()
+                    viewModel.sepeteEkle(it, yemek, 1)
                 }.show()
         }
     }

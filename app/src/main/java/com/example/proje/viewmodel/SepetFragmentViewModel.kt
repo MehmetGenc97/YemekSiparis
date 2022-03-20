@@ -7,29 +7,33 @@ import androidx.lifecycle.ViewModel
 import com.example.proje.entity.SepetYemekler
 import com.example.proje.entity.Yemekler
 import com.example.proje.repo.YemeklerRepository
+import com.google.firebase.auth.FirebaseAuth
 
 class SepetFragmentViewModel : ViewModel() {
     var sepetYemeklerListesi = MutableLiveData<List<SepetYemekler>>()
     val yrepo = YemeklerRepository()
-    val kullanici_adi = "Genç" // burası ile ilgilenmen gerek
+    private lateinit var firebaseAuth: FirebaseAuth
     var toplamFiyat = 0
 
     init {
-        sepettekiYemekleriYukle(kullanici_adi)
+        sepettekiYemekleriYukle()
         sepetYemeklerListesi = yrepo.sepetiGetir()
         toplamFiyat = yrepo.toplamSepetFiyatiGetir()
     }
 
-    fun sepettekiYemekleriYukle(kullanici_adi: String) {
-        yrepo.sepettekiYemekleriAl(kullanici_adi)
+    fun sepettekiYemekleriYukle() {
+        firebaseInit()
+        val firebaseUser = firebaseAuth.currentUser
+        if(!firebaseUser?.email.isNullOrEmpty())
+            yrepo.sepettekiYemekleriAl(firebaseUser?.email.toString())
     }
 
     fun sepettenYemekSil(sepetYemekler: SepetYemekler) {
         yrepo.sepettenYemekSil(sepetYemekler)
-        sepettekiYemekleriYukle(kullanici_adi)
+        sepettekiYemekleriYukle()
     }
 
-    fun toplamFiyatHesapla() {
-        yrepo.toplamFiyatHesapla()
+    fun firebaseInit() {
+        firebaseAuth = FirebaseAuth.getInstance()
     }
 }

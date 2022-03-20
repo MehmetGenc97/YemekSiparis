@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/fragment_anasayfa.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/fragment_hesabim.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/fragment_hesap.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/fragment_sepet.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/fragment_sepet_giris.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/fragment_sign_up.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/fragment_yemek_detay.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/sepet_card_tasarimi.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Proje/app/src/main/res/layout/yemek_card_tasarimi.xml" value="0.5" />
         <entry key="..\:/Users/Mehmet/AndroidStudioProjects/TechCareerBootCamp/Proje/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Mehmet/AndroidStudioProjects/TechCareerBootCamp/Proje/app/src/main/res/layout/fragment_anasayfa.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Mehmet/AndroidStudioProjects/TechCareerBootCamp/Proje/app/src/main/res/layout/fragment_hesap.xml" value="0.20416666666666666" />

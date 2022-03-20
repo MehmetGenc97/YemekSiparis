@@ -46,7 +46,6 @@ class SepetYemeklerAdapter(var mContext: Context, var sepetYemeklerListesi: List
                 .setAction("Evet") {
                     viewModel.sepettenYemekSil(sepetYemek)
                 }.show()
-            Log.e("Sepet Ürün sayısı:" , sepetYemeklerListesi.size.toString())
         }
     }
 
