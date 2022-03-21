@@ -1,6 +1,8 @@
 package com.example.proje.fragment
 
+import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.Bindable
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import com.example.proje.DialogUtils
 import com.example.proje.R
 import com.example.proje.adapter.SepetYemeklerAdapter
 import com.example.proje.adapter.YemeklerAdapter
@@ -18,6 +21,7 @@ import com.example.proje.viewmodel.SepetFragmentViewModel
 class SepetFragment : Fragment() {
     private lateinit var tasarim: FragmentSepetBinding
     private lateinit var viewModel: SepetFragmentViewModel
+    private var loadingDialog: Dialog? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         tasarim = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_sepet, container, false)
@@ -61,7 +65,20 @@ class SepetFragment : Fragment() {
         return toplamFiyat
     }
 
-    fun siparisVer() {
+    private fun hideLoading() {
+        loadingDialog?.let { if (it.isShowing) it.cancel() }
+    }
 
+    private fun showDialog() {
+        hideLoading()
+        loadingDialog = DialogUtils.showLoadingDialog(requireContext(), R.layout.siparis_verildi)
+    }
+
+    fun siparisVer() {
+        showDialog()
+        Handler().postDelayed({
+            hideLoading()
+
+        }, 3000)
     }
 }
