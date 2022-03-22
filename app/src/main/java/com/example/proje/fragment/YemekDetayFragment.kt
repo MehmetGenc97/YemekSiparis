@@ -28,7 +28,6 @@ class YemekDetayFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         tasarim = DataBindingUtil.inflate(inflater, R.layout.fragment_yemek_detay, container, false)
         tasarim.yemekDetayFragment = this
-        tasarim.yemekDetayToolbarBaslik = "Yemek Detay"
         tasarim.yemekAdet = 1
 
         val bundle: YemekDetayFragmentArgs by navArgs()
