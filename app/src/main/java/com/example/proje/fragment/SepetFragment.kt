@@ -16,12 +16,12 @@ import com.example.proje.adapter.SepetYemeklerAdapter
 import com.example.proje.adapter.YemeklerAdapter
 import com.example.proje.adapter.yemekResimYukle
 import com.example.proje.databinding.FragmentSepetBinding
+import com.example.proje.repo.AnimasyonRepository
 import com.example.proje.viewmodel.SepetFragmentViewModel
 
 class SepetFragment : Fragment() {
     private lateinit var tasarim: FragmentSepetBinding
     private lateinit var viewModel: SepetFragmentViewModel
-    private var loadingDialog: Dialog? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         tasarim = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_sepet, container, false)
@@ -65,20 +65,7 @@ class SepetFragment : Fragment() {
         return toplamFiyat
     }
 
-    private fun hideLoading() {
-        loadingDialog?.let { if (it.isShowing) it.cancel() }
-    }
-
-    private fun showDialog() {
-        hideLoading()
-        loadingDialog = DialogUtils.showLoadingDialog(requireContext(), R.layout.siparis_verildi)
-    }
-
     fun siparisVer() {
-        showDialog()
-        Handler().postDelayed({
-            hideLoading()
-
-        }, 3000)
+        AnimasyonRepository.animationGoster(requireContext(), R.layout.siparis_verildi)
     }
 }

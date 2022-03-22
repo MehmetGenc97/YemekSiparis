@@ -16,12 +16,12 @@ import com.example.proje.databinding.YemekCardTasarimiBinding
 import com.example.proje.entity.SepetYemekler
 import com.example.proje.entity.Yemekler
 import com.example.proje.fragment.SepetFragmentDirections
+import com.example.proje.repo.AnimasyonRepository
 import com.example.proje.viewmodel.SepetFragmentViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class SepetYemeklerAdapter(var mContext: Context, var sepetYemeklerListesi: List<SepetYemekler>, var viewModel: SepetFragmentViewModel)
     : RecyclerView.Adapter<SepetYemeklerAdapter.SepetCardTasarimTutucu>() {
-    private var loadingDialog: Dialog? = null
 
     inner class SepetCardTasarimTutucu(tasarim: SepetCardTasarimiBinding) : RecyclerView.ViewHolder(tasarim.root) {
         var tasarim: SepetCardTasarimiBinding
@@ -49,7 +49,7 @@ class SepetYemeklerAdapter(var mContext: Context, var sepetYemeklerListesi: List
         t.imageViewSepetSil.setOnClickListener{
             Snackbar.make(it, "${sepetYemek.yemek_adi} sepetten silinsin mi?", Snackbar.LENGTH_LONG)
                 .setAction("Evet") {
-                    animationGoster()
+                    AnimasyonRepository.animationGoster(mContext, R.layout.yemek_sil)
                     viewModel.sepettenYemekSil(sepetYemek)
                 }.show()
         }
@@ -57,23 +57,6 @@ class SepetYemeklerAdapter(var mContext: Context, var sepetYemeklerListesi: List
 
     override fun getItemCount(): Int {
         return sepetYemeklerListesi.size
-    }
-
-    private fun hideLoading() {
-        loadingDialog?.let { if (it.isShowing) it.cancel() }
-    }
-
-    private fun showDialog() {
-        hideLoading()
-        loadingDialog = DialogUtils.showLoadingDialog(mContext, R.layout.yemek_sil)
-    }
-
-    private fun animationGoster() {
-        showDialog()
-        Handler().postDelayed({
-            hideLoading()
-
-        }, 2000)
     }
 
 }

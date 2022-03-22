@@ -12,13 +12,12 @@ import com.example.proje.R
 import com.example.proje.databinding.YemekCardTasarimiBinding
 import com.example.proje.entity.Yemekler
 import com.example.proje.fragment.AnasayfaFragmentDirections
+import com.example.proje.repo.AnimasyonRepository
 import com.example.proje.viewmodel.AnasayfaFragmentViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class YemeklerAdapter(var mContext: Context, var yemeklerListesi: List<Yemekler>, var viewModel: AnasayfaFragmentViewModel)
     : RecyclerView.Adapter<YemeklerAdapter.CardTasarimTutucu>() {
-
-    private var loadingDialog: Dialog? = null
 
     inner class CardTasarimTutucu(tasarim: YemekCardTasarimiBinding) : RecyclerView.ViewHolder(tasarim.root) {
         var tasarim: YemekCardTasarimiBinding
@@ -45,7 +44,8 @@ class YemeklerAdapter(var mContext: Context, var yemeklerListesi: List<Yemekler>
         t.floatingActionButton2.setOnClickListener{
             Snackbar.make(it, "${yemek.yemek_adi} sepete eklensin mi", Snackbar.LENGTH_SHORT)
                 .setAction("Evet") {
-                    animationGoster()
+                    //animationGoster()
+                    AnimasyonRepository.animationGoster(mContext, R.layout.sepete_eklendi)
                     viewModel.sepeteEkle(it, yemek, 1)
                 }.show()
         }
@@ -53,22 +53,5 @@ class YemeklerAdapter(var mContext: Context, var yemeklerListesi: List<Yemekler>
 
     override fun getItemCount(): Int {
         return yemeklerListesi.size
-    }
-
-    private fun hideLoading() {
-        loadingDialog?.let { if (it.isShowing) it.cancel() }
-    }
-
-    private fun showDialog() {
-        hideLoading()
-        loadingDialog = DialogUtils.showLoadingDialog(mContext, R.layout.sepete_eklendi)
-    }
-
-    private fun animationGoster() {
-        showDialog()
-        Handler().postDelayed({
-            hideLoading()
-
-        }, 2000)
     }
 }
