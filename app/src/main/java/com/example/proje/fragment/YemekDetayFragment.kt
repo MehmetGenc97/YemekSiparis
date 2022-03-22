@@ -47,9 +47,7 @@ class YemekDetayFragment : Fragment() {
     fun sepeteEkle(view: View, yemek: Yemekler, yemek_siparis_adet: Int, kullanici_adi: String){
         Snackbar.make(view, "${yemek.yemek_adi} Sepete ${yemek_siparis_adet} tane eklensin mi?", Snackbar.LENGTH_LONG)
             .setAction("Evet") {
-                AnimasyonRepository.animationGoster(requireContext(), R.layout.sepete_eklendi)
-                viewModel.sepeteYemekEkle(yemek, yemek_siparis_adet, kullanici_adi)
-                Snackbar.make(view, "${yemek.yemek_adi} Sepete Eklendi", Snackbar.LENGTH_SHORT).show()
+                viewModel.sepeteYemekEkle(view ,yemek, yemek_siparis_adet, kullanici_adi)
             }.show()
     }
 

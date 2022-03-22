@@ -45,7 +45,7 @@ class YemeklerAdapter(var mContext: Context, var yemeklerListesi: List<Yemekler>
             Snackbar.make(it, "${yemek.yemek_adi} sepete eklensin mi", Snackbar.LENGTH_SHORT)
                 .setAction("Evet") {
                     //animationGoster()
-                    AnimasyonRepository.animationGoster(mContext, R.layout.sepete_eklendi)
+
                     viewModel.sepeteEkle(it, yemek, 1)
                 }.show()
         }
